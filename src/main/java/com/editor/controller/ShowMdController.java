@@ -1,7 +1,6 @@
 package com.editor.controller;
 
 import com.editor.utils.ApiResult;
-import com.editor.utils.DataBaseUrl;
 import com.editor.utils.ResultUtils;
 import org.apache.commons.io.FileUtils;
 import org.springframework.util.ResourceUtils;
