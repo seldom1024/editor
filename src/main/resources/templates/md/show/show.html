@@ -27,7 +27,7 @@
             if (result.errorCode === 1) {
                 return;
             } else {
-                $("#mdText").html(result.data.data);
+                $("#mdText").html(result.data);
                 wordsView = editormd.markdownToHTML("wordsView", {
                     htmlDecode: "style,script,iframe",  // you can filter tags decode
                     emoji: true,

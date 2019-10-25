@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SupplierController {
+
     /**
      * 页面跳转的controller
      * @param doc

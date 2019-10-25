@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>md文件展示</title>
+    <link rel="stylesheet" type="text/css" href="/editor.md-master/css/editormd.css" />
+    <script src="/editor.md-master/examples/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/editor.md-master/src/editormd.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="/editor.md-master/lib/marked.min.js"></script>
+    <script src="/editor.md-master/lib/prettify.min.js"></script>
+    <script src="/editor.md-master/lib/raphael.min.js"></script>
+    <script src="/editor.md-master/lib/underscore.min.js"></script>
+    <script src="/editor.md-master/lib/sequence-diagram.min.js"></script>
+    <script src="/editor.md-master/lib/flowchart.min.js"></script>
+    <script src="/editor.md-master/lib/jquery.flowchart.min.js"></script>
+    <title>重新编辑</title>
+</head>
+<body>
+<div class="blogtit">
+    <input type="text" placeholder="请输入博客名称" name="title" id="title" th:value="${blog.blTitle}"/>
+</div>
+<!--class="editormd"-->
+<div id="test-editormd">
+    <!--/*@thymesVar id="blContent" type=""*/-->
+    <textarea style="display:none; text-align: center" name="test-editormd-markdown-doc" id="content"
+              th:text="${blog.blContent}"></textarea>
+    <!--第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+    <!--<textarea class="editormd-html-textarea" name="text" id="htmlContent"></textarea>-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        var testEditor;
+        testEditor = editormd("test-editormd", {
+            // placeholder: '本编辑器支持Markdown编辑，左边编写，右边预览',  //默认显示的文字，这里就不解释了
+            width: "80%",
+            height: 640,
+            syncScrolling: "single",
+            path: "/editor.md-master/lib/",//就是editor的lib目录
+            theme: "dark",//工具栏主题
+            previewTheme: "dark",//预览主题
+            editorTheme: "mbo",//编辑主题
+            saveHTMLToTextarea: true,
+            emoji: true,
+            taskList: true,
+            tocm: true,// Using [TOCM]
+            tex: true,// 开启科学公式TeX语言支持，默认关闭
+            flowChart: true,// 开启流程图支持，默认关闭
+            sequenceDiagram: true,// 开启时序/序列图支持，默认关闭,
+            imageUpload: true,//开启图片上传
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "/img/imgUpLoad",//上传的路径，就是mvc的controller路径
+            toolbarIcons: function () {//自定义工具栏，后面有详细介绍
+                return editormd.toolbarModes['full'];// full, simple, mini
+            },
+        });
+    });
+</script>
+</body>
+</html>
