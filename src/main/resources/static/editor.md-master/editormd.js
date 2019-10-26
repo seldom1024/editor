@@ -148,6 +148,7 @@
         onpreviewscroll: function () {
         },
 
+        /*新增 , "mp4"*/
         imageUpload: false,
         imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
         imageUploadURL: "",

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+
+<p>&lt;video class="video-js" controls preload="auto" width="100%" poster="" data-setup='{"aspectRatio":"16:9"}'&gt;&lt;source
+    src="/download/img/movie.mp4" type='video/mp4' &gt; &lt;p class="vjs-no-js"&gt;To view this video please enable
+    JavaScript&lt;/p&gt;&lt;/video&gt;
+
+</p>
+<h3>success</h3>
+<div id="wordsView" th:utext=" ${article}">
+</div>
+
+<!--<script type="text/javascript">
+    $(function () {
+        $.get('/sys/show/Centos7.md', function (result) {
+            if (result.errorCode === 1) {
+                return;
+            } else {
+                $("#mdText").html(result.data);
+                wordsView = editormd.markdownToHTML("wordsView", {
+                    htmlDecode: "style,script,iframe",  // you can filter tags decode
+                    emoji: true,
+                    taskList: true,
+                    tex: true,  // 默认不解析
+                    flowChart: true,  // 默认不解析
+                    sequenceDiagram: true  // 默认不解析
+                });
+            }
+
+        });
+        //})
+    });
+</script>-->
+
+</body>
+</html>
